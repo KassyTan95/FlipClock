@@ -12,12 +12,14 @@ const getData = async (): Promise<void> => {
   const res = await hitokoto({ encode: 'json', min_length: 4, max_length: 15 })
   config.oneWord.content = res.hitokoto
   config.oneWord.time = dayjs().format('YYYY-MM-DD HH:mm:ss')
-  setTimer()
+  if (timer.value === null) {
+    setTimer()
+  }
 }
 
 const setTimer = (): void => {
   timer.value = setInterval(() => {
-    if (dayjs(config.oneWord.time).diff(dayjs(), 'second') >= 1800) {
+    if (dayjs().diff(dayjs(config.oneWord.time), 'second') >= 1800) {
       getData()
     }
   }, 1000)
