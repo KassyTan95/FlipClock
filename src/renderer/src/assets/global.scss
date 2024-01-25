@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+.drag {
+  -webkit-app-region: drag;
+}
+
+.nodrag,
+input,
+select,
+textarea,
+option {
+  -webkit-app-region: no-drag;
+}
+
+body {
+  // background-color: yellowgreen;
+  width: 100vw;
+  height: 100vh;
+}
+
+#app {
+  // background-color: coral;
+  padding: 5px;
+}
+
+// 自动移滚动条样式
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #c0c0c0;
+}
+
+::-webkit-scrollbar-track {
+  /*滚动条里面轨道*/
+  box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.2);
+  // background: #ededed;
+  border-radius: 10px;
+}
