@@ -2,6 +2,7 @@ import { app, shell, BrowserWindow } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
+import createTray from './tray'
 import './ipc'
 
 function createWindow(): void {
@@ -64,6 +65,8 @@ app.whenReady().then(() => {
 
   createWindow()
 
+  // 系统托盘
+  createTray()
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.
