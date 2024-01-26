@@ -12,6 +12,7 @@ export interface ClockType {
   timing: TimingType
   offTime: string
   isTop: boolean
+  autoStart: boolean
 }
 
 export interface TimingType {

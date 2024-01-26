@@ -5,6 +5,9 @@ const { config } = useConfigStore()
 const handleTop = (val: boolean): void => {
   window.api.setTopping(val)
 }
+const handleAutoStart = (val: boolean): void => {
+  window.api.setAutomaticStartup(val)
+}
 </script>
 
 <template>
@@ -16,6 +19,15 @@ const handleTop = (val: boolean): void => {
           <div class="block">
             置顶
             <el-radio-group v-model="config.clock.isTop" size="small" @change="handleTop">
+              <el-radio-button :label="true">是</el-radio-button>
+              <el-radio-button :label="false">否</el-radio-button>
+            </el-radio-group>
+          </div>
+        </div>
+        <div class="body">
+          <div class="block">
+            开机自启
+            <el-radio-group v-model="config.clock.autoStart" size="small" @change="handleAutoStart">
               <el-radio-button :label="true">是</el-radio-button>
               <el-radio-button :label="false">否</el-radio-button>
             </el-radio-group>

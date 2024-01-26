@@ -8,6 +8,9 @@ const api = {
   },
   setTopping: (isTop: boolean): void => {
     ipcRenderer.send('setTopping', isTop)
+  },
+  setAutomaticStartup: (op: boolean): void => {
+    ipcRenderer.send('setAutomaticStartup', op)
   }
 }
 

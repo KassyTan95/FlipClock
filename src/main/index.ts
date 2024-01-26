@@ -47,6 +47,7 @@ function createWindow(): void {
   } else {
     mainWindow.loadFile(join(__dirname, '../renderer/index.html'))
   }
+  // 隐藏任务栏
   mainWindow.setSkipTaskbar(true)
 }
 

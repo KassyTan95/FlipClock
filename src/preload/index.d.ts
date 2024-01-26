@@ -7,6 +7,7 @@ declare global {
     api: {
       setIgnoreMouseEvents: (ignore: boolean, options?: IgnoreMouseEventsOptions) => void
       setTopping: (isTop: boolean) => void
+      setAutomaticStartup: (op: boolean) => void
     }
   }
 }

@@ -17,7 +17,8 @@ export const useConfigStore = defineStore(
           minute: 0,
           second: 0
         },
-        isTop: true
+        isTop: true,
+        autoStart: false
       },
       footer: {
         bgColor: '#16a085',
