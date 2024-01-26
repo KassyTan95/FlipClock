@@ -11,8 +11,7 @@ const createTray = (): void => {
   const contextMenu = Menu.buildFromTemplate([
     {
       label: '关于',
-      // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-      click: () => {
+      click: (): void => {
         shell.openExternal('https://git.kassy.cc:999/kassy/FlipClock')
       }
     },
