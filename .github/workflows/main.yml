@@ -32,12 +32,11 @@ jobs:
         with:
           node-version: 18.x
           cache: "pnpm"
-      - name: install pnpm
-        run: npm i -g pnpm
 
       # step3: pnpm install
       - name: pnpm install
         run: |
+          npm install -g pnpm
           pnpm install
       # step4: build app for mac/win
       - name: build windows app
