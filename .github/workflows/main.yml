@@ -26,6 +26,9 @@ jobs:
       - name: Check out git repository
         uses: actions/checkout@v3
 
+      - name: Install pnpm
+        run: npm install -g pnpm
+
       # step2: install node env
       - name: Install Node.js
         uses: actions/setup-node@v3
@@ -36,7 +39,6 @@ jobs:
       # step3: pnpm install
       - name: pnpm install
         run: |
-          npm install -g pnpm
           pnpm install
       # step4: build app for mac/win
       - name: build windows app
