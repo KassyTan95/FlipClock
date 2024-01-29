@@ -31,25 +31,25 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18.x
-          cache: "npm"
+          cache: "pnpm"
 
-      # step3: npm install
-      - name: npm install
+      # step3: pnpm install
+      - name: pnpm install
         run: |
-          npm install
+          pnpm install
       # step4: build app for mac/win
       - name: build windows app
         if: matrix.os == 'windows-latest'
         run: |
-          npm run build:win
+          pnpm build:win
       - name: build mac app
         if: matrix.os == 'macos-latest'
         run: |
-          npm run build:mac
+          pnpm build:mac
       - name: build Ubuntu app
         if: matrix.os == 'ubuntu-latest'
         run: |
-          npm run build:linux
+          pnpm build:linux
       # step5: cleanup artifacts in dist_electron
       - name: cleanup artifacts for windows
         if: matrix.os == 'windows-latest'
