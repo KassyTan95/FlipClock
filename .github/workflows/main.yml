@@ -18,7 +18,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [windows-2019, macos-10.15, ubuntu-18.04]
+        os: [windows-latest, macos-latest, ubuntu-latest]
 
     # create steps
     steps:
@@ -28,7 +28,10 @@ jobs:
 
       # step2: install node env
       - name: Install Node.js
-        uses: actions/setup-node@v2-beta
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache: "npm"
 
       # step3: npm install
       - name: npm install
@@ -36,30 +39,30 @@ jobs:
           npm install
       # step4: build app for mac/win
       - name: build windows app
-        if: matrix.os == 'windows-2019'
+        if: matrix.os == 'windows-latest'
         run: |
           npm run build:win
       - name: build mac app
-        if: matrix.os == 'macos-10.15'
+        if: matrix.os == 'macos-latest'
         run: |
           npm run build:mac
       - name: build Ubuntu app
-        if: matrix.os == 'ubuntu-18.04'
+        if: matrix.os == 'ubuntu-latest'
         run: |
           npm run build:linux
       # step5: cleanup artifacts in dist_electron
       - name: cleanup artifacts for windows
-        if: matrix.os == 'windows-2019'
+        if: matrix.os == 'windows-latest'
         run: |
           mkdir artifacts
           mv release/*.exe artifacts || true
       - name: cleanup artifacts for macosZ
-        if: matrix.os == 'macos-10.15'
+        if: matrix.os == 'macos-latest'
         run: |
           mkdir artifacts
           mv release/*.dmg artifacts || true
       - name: cleanup artifacts for Ubuntu
-        if: matrix.os == 'ubuntu-18.04'
+        if: matrix.os == 'ubuntu-latest'
         run: |
           mkdir artifacts
           mv release/*.dmg artifacts || true
