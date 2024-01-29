@@ -1,4 +1,4 @@
-name: Build Electron App For Win/Mac
+name: Build Electron App For Win/Mac/Linux
 
 on:
   push:
@@ -24,7 +24,7 @@ jobs:
     steps:
       # step1: check out repository
       - name: Check out git repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       # step2: install node env
       - name: Install Node.js
