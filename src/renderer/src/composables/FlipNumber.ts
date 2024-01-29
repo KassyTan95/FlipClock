@@ -58,11 +58,12 @@ export default class FlipNumber {
     const secondString = second > 9 ? second : '0' + second
 
     // 取数字的数量，有小时的时候取6位
-    const len = hourString == '00' ? 4 : 6
+    // const len = hourString == '00' ? 4 : 6
     this.nums = (hourString + '' + minuteString + secondString)
-      .substring(6 - len)
+      // .substring(6 - len)
       .split('')
       .map((n) => +n)
+    // console.log('this.nums', (hourString + '' + minuteString + secondString).substring(6 - len))
   }
 
   // 获取时间的数字

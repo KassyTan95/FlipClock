@@ -28,7 +28,6 @@ export default class FlipClock extends FlipNumber {
     this.intervalId = setInterval(() => {
       this.getNums()
       this.updateDivNumber()
-      // console.log('runing........')
       if (this.nums.filter((n) => n > 0).length == 0) {
         clearInterval(this.intervalId)
       }

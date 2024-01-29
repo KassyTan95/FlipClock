@@ -12,7 +12,7 @@ const autoUpdateApp = (): void => {
 
   // 监听'update-available'事件，发现有新版本时触发
   autoUpdater.on('update-available', () => {
-    console.log('found new version')
+    console.log('有新版本需要更新')
   })
 
   // 监听'update-downloaded'事件，新版本下载完成时触发
