@@ -32,7 +32,6 @@ const autoUpdateApp = async (): Promise<void> => {
     autoUpdater.downloadUpdate()
   })
 
-  console.log('1111111111', 1111111111)
   // 监听'update-not-available'事件，没有更新时触发
   autoUpdater.on('update-not-available', () => {
     console.log('没有可用更新')
