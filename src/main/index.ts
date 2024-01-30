@@ -3,6 +3,7 @@ import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
 import createTray from './tray'
+import autoUpdateApp from './updater'
 import './ipc'
 
 function createWindow(): void {
@@ -67,6 +68,8 @@ app.whenReady().then(() => {
 
   createWindow()
 
+  // 自动更新
+  autoUpdateApp()
   // 系统托盘
   createTray()
   app.on('activate', function () {

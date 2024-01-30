@@ -3,16 +3,19 @@ productName: 翻转时钟
 directories:
   buildResources: build
 files:
-  - '!**/.vscode/*'
-  - '!src/*'
-  - '!electron.vite.config.{js,ts,mjs,cjs}'
-  - '!{.eslintignore,.eslintrc.cjs,.prettierignore,.prettierrc.yaml,dev-app-update.yml,CHANGELOG.md,README.md}'
-  - '!{tsconfig.json,tsconfig.node.json,tsconfig.web.json}'
+  - "!**/.vscode/*"
+  - "!src/*"
+  - "!electron.vite.config.{js,ts,mjs,cjs}"
+  - "!{.eslintignore,.eslintrc.cjs,.prettierignore,.prettierrc.yaml,dev-app-update.yml,CHANGELOG.md,README.md}"
+  - "!{tsconfig.json,tsconfig.node.json,tsconfig.web.json}"
 asarUnpack:
   - resources/*
 afterSign: build/notarize.js
 win:
   executableName: FlipClock
+  publish:
+    provider: generic
+    url: http://file.kassy.cc:666/electron/FlipClock/win
 nsis:
   artifactName: ${name}-${version}-setup.${ext}
   shortcutName: ${productName}
@@ -28,6 +31,9 @@ mac:
     - NSMicrophoneUsageDescription: Application requests access to the device's microphone.
     - NSDocumentsFolderUsageDescription: Application requests access to the user's Documents folder.
     - NSDownloadsFolderUsageDescription: Application requests access to the user's Downloads folder.
+  publish:
+    provider: generic
+    url: http://file.kassy.cc:666/electron/FlipClock/mac
 dmg:
   artifactName: ${name}-${version}.${ext}
 linux:
@@ -37,9 +43,12 @@ linux:
     - deb
   maintainer: electronjs.org
   category: Utility
+  publish:
+    provider: generic
+    url: http://file.kassy.cc:666/electron/FlipClock/linux
 appImage:
   artifactName: ${name}-${version}.${ext}
 npmRebuild: false
 publish:
   provider: generic
-  url: https://example.com/auto-updates
+  url: http://file.kassy.cc:666/electron/FlipClock/win

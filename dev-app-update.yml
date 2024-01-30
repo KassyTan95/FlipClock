@@ -1,3 +1,3 @@
 provider: generic
-url: https://example.com/auto-updates
+url: http://file.kassy.cc:666/electron/FlipClock/mac
 updaterCacheDirName: flipclock-updater
