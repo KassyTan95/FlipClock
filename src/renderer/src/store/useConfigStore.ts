@@ -18,7 +18,8 @@ export const useConfigStore = defineStore(
           second: 0
         },
         isTop: true,
-        autoStart: false
+        autoStart: false,
+        dockHide: false
       },
       footer: {
         bgColor: '#16a085',

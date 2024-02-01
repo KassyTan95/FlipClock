@@ -35,7 +35,10 @@ export default class FlipNumber {
         this.endTime = this.endTime!.add(num, type as dayjs.ManipulateType)
       })
     } else {
-      this.endTime = this.endTime!.add(this.calcOffWorkTime(), 'second')
+      const second = this.endTime!.add(this.calcOffWorkTime(), 'second')
+      if (second) {
+        this.endTime = second
+      }
     }
   }
   // 获取下一次的渲染数字

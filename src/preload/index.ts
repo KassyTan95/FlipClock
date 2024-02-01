@@ -11,6 +11,12 @@ const api = {
   },
   setAutomaticStartup: (op: boolean): void => {
     ipcRenderer.send('setAutomaticStartup', op)
+  },
+  setDockHide: (isHide: boolean): void => {
+    ipcRenderer.send('setDockHide', isHide)
+  },
+  platform: (): string => {
+    return process.platform
   }
 }
 

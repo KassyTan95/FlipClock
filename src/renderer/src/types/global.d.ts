@@ -13,6 +13,7 @@ export interface ClockType {
   offTime: string
   isTop: boolean
   autoStart: boolean
+  dockHide: boolean
 }
 
 export interface TimingType {

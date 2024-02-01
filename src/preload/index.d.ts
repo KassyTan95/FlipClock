@@ -8,6 +8,9 @@ declare global {
       setIgnoreMouseEvents: (ignore: boolean, options?: IgnoreMouseEventsOptions) => void
       setTopping: (isTop: boolean) => void
       setAutomaticStartup: (op: boolean) => void
+      setDockHide: (isHide: boolean) => void
+      platform: () => string
+      getVersion: () => string
     }
   }
 }

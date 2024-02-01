@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { useConfigStore } from '@renderer/store/useConfigStore'
+import { onMounted, ref } from 'vue'
+
 const { config } = useConfigStore()
+
+const platform = ref<string>('')
 
 const handleTop = (val: boolean): void => {
   window.api.setTopping(val)
@@ -8,6 +12,12 @@ const handleTop = (val: boolean): void => {
 const handleAutoStart = (val: boolean): void => {
   window.api.setAutomaticStartup(val)
 }
+const handleDockHide = (val: boolean): void => {
+  window.api.setDockHide(val)
+}
+onMounted(() => {
+  platform.value = window.api.platform()
+})
 </script>
 
 <template>
@@ -28,6 +38,15 @@ const handleAutoStart = (val: boolean): void => {
           <div class="block">
             开机自启
             <el-radio-group v-model="config.clock.autoStart" size="small" @change="handleAutoStart">
+              <el-radio-button :label="true">是</el-radio-button>
+              <el-radio-button :label="false">否</el-radio-button>
+            </el-radio-group>
+          </div>
+        </div>
+        <div v-if="platform === 'darwin'" class="body">
+          <div class="block">
+            隐藏Dock栏图标
+            <el-radio-group v-model="config.clock.dockHide" size="small" @change="handleDockHide">
               <el-radio-button :label="true">是</el-radio-button>
               <el-radio-button :label="false">否</el-radio-button>
             </el-radio-group>

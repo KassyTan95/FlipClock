@@ -25,3 +25,10 @@ ipcMain.on('setAutomaticStartup', (_event: IpcMainEvent, op: boolean) => {
     openAtLogin: op
   })
 })
+
+/**
+ * 设置dock显示隐藏
+ */
+ipcMain.on('setDockHide', (_, isHide: boolean) => {
+  isHide ? app.dock.hide() : app.dock.show()
+})
