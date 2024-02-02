@@ -36,7 +36,7 @@ export default class FlipNumber {
       })
     } else {
       const second = this.endTime!.add(this.calcOffWorkTime(), 'second')
-      if (second) {
+      if (second.diff(dayjs(), 'second') > 0) {
         this.endTime = second
       }
     }
