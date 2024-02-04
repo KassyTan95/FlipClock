@@ -12,7 +12,7 @@ const createTray = (): void => {
     {
       label: '关于',
       click: (): void => {
-        shell.openExternal('https://git.kassy.cc:999/kassy/FlipClock')
+        shell.openExternal('https://github.com/KassyTan95/FlipClock')
       }
     },
     { label: '退出', role: 'quit' }
